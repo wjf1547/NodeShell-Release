@@ -4,14 +4,14 @@
   "phone": {
     "url": "https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.20/NodeShell-0.2.20-arm64.apk",
     "mirror": "https://ghfast.top/https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.20/NodeShell-0.2.20-arm64.apk",
-    "size": 54440996,
-    "md5": "30f5cd49936116d8ecfa781745b144eb"
+    "size": 54440940,
+    "md5": "0511ed7d7bdc8572f16c1eb07d9818e6"
   },
   "tv": {
     "url": "https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.20/NodeShell-TV-0.2.20-v7a.apk",
     "mirror": "https://ghfast.top/https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.20/NodeShell-TV-0.2.20-v7a.apk",
-    "size": 50255330,
-    "md5": "72dcec5430400efb64b0bf96f72784a7"
+    "size": 50255278,
+    "md5": "3572a8cf2e20b89656afe5c6c3473c60"
   },
   "notes": "基座更新至 0.2.20"
 }
