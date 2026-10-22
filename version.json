@@ -1,17 +1,17 @@
 {
-  "version": "0.2.16",
-  "versionCode": 161,
+  "version": "0.2.18",
+  "versionCode": 163,
   "phone": {
-    "url": "https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.16/NodeShell-0.2.16-arm64.apk",
-    "mirror": "https://ghfast.top/https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.16/NodeShell-0.2.16-arm64.apk",
-    "size": 54424336,
-    "md5": "37a5e9a18df7528a9843a144e95369e9"
+    "url": "https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.18/NodeShell-0.2.18-arm64.apk",
+    "mirror": "https://ghfast.top/https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.18/NodeShell-0.2.18-arm64.apk",
+    "size": 54424664,
+    "md5": "947a2922c13c5643e9818bdc5c9c1373"
   },
   "tv": {
-    "url": "https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.16/NodeShell-TV-0.2.16-v7a.apk",
-    "mirror": "https://ghfast.top/https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.16/NodeShell-TV-0.2.16-v7a.apk",
-    "size": 50238670,
-    "md5": "19e4db9ba153992a8e364fdb8a57ab4b"
+    "url": "https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.18/NodeShell-TV-0.2.18-v7a.apk",
+    "mirror": "https://ghfast.top/https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.18/NodeShell-TV-0.2.18-v7a.apk",
+    "size": 50238998,
+    "md5": "3311feeed01ee55c74c761369c2a5ad4"
   },
-  "notes": "基座更新至 0.2.16\n\n- 修复 0.2.15 安装后闪退的问题，强烈建议 0.2.15 用户升级\n- 修复「检查更新失败」：开启加速时检查更新也走加速通道，失败会自动回落到直连并提示原因\n- 加速域名开关即时生效：切换后界面状态同步刷新，不再出现滑块不动的情况\n- 加速域名可自定义，也能一键关闭\n- 运行时资源加密，降低被解包查看内部逻辑的风险\n- 设置 → 关于：显示当前版本，可手动检查更新"
+  "notes": "基座更新至 0.2.18"
 }
