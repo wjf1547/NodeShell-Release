@@ -1,0 +1,17 @@
+{
+  "version": "0.2.50",
+  "versionCode": 200,
+  "phone": {
+    "url": "https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.50/NodeShell-0.2.50-arm64.apk",
+    "mirror": "https://ghfast.top/https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.50/NodeShell-0.2.50-arm64.apk",
+    "size": 55040413,
+    "md5": "e46a6532d6e5db2227f99ce885d4c91c"
+  },
+  "tv": {
+    "url": "https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.50/NodeShell-TV-0.2.50-v7a.apk",
+    "mirror": "https://ghfast.top/https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.50/NodeShell-TV-0.2.50-v7a.apk",
+    "size": 50838887,
+    "md5": "59a8b0870e97ce8461f2e48d94532327"
+  },
+  "notes": "基座更新至 0.2.50"
+}

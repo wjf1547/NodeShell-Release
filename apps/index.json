@@ -1,0 +1,87 @@
+{
+  "apiVersion": 1,
+  "name": "NodeShell 官方应用集",
+  "apps": [
+    {
+      "id": "agedm",
+      "name": "AGE动漫",
+      "version": "1.0.4",
+      "description": "AGE动漫(agedongman)原生版: 首页分区/分类列表(点击翻页)/搜索/详情(多线路选集)/HLS 直链 $media.open 播放 + 播完自动下一集; 站点域名与代理前缀可配置 (主站被墙时走代理, 图片/视频直连 CDN)",
+      "url": "apps/nsapp/agedm-1.0.4.nsapp",
+      "size": 20060,
+      "md5": "a4549d663fc923f4c06633a990e3d7fb"
+    },
+    {
+      "id": "demo",
+      "name": "示例演示",
+      "version": "1.8.3",
+      "description": "NodeShell 能力演示 + 上手教程。源码已按模块拆分 (core/ controls/ screens/ events/ + lib/), 一个分类一个文件, 照着某一屏直接读对应文件即可。44 个控件全覆盖 (11 分类 / 78 屏), 另含翻页公共模块 lib/pager.js 的完整用法范例 (页码条/跳页/失败重试/竞态防护)。每屏底部可展开并复制该屏真实渲染代码 (反生成, 不会与实现脱节)。",
+      "url": "apps/nsapp/demo-1.8.3.nsapp",
+      "size": 84220,
+      "md5": "09c45d77d5ab9d677100f4a8dcb84510"
+    },
+    {
+      "id": "filemgr",
+      "name": "文件管理器",
+      "version": "1.2.0",
+      "description": "本地文件管理: 浏览 /storage/emulated/0 全盘, 目录进入/上级/常用目录跳转, 排序(名称/大小/时间+升降序)/隐藏文件开关/关键字过滤; 打开图片(内置看图)/文本(可编辑保存)/音视频(基座播放器); 长按多选, 复制/移动/删除/重命名/新建文件夹/新建文本文件; 详情与存储空间统计。 v1.2.0 修复「重开应用不是根目录 + 点上级没反应」: 旧版会把当前目录写进起始目录配置且覆盖安装保留该脏值, 导致重开停在深层目录、目录栈为空时上级无处可退; 现在首启自动修复脏配置, 目录栈空时上级按文件系统父级继续上移(唯一停点=内部存储根), 并新增「设为起始目录/回到起始目录/重置起始目录」。",
+      "url": "apps/nsapp/filemgr-1.2.0.nsapp",
+      "size": 19243,
+      "md5": "9063086ebb797b80b5b207353a6028a3"
+    },
+    {
+      "id": "onedrive",
+      "name": "OneDrive",
+      "version": "1.0.4",
+      "description": "OneDrive 网盘 (Microsoft Graph API): 粘贴 refresh_token 登录, 浏览/播放/直链下载 + 建夹/重命名/移动/复制/删除 + 容量。支持 global/cn/us/de 四区, 在线 API 刷新 token 免 ClientID。",
+      "url": "apps/nsapp/onedrive-1.0.4.nsapp",
+      "size": 14676,
+      "md5": "96d23124e58fd848cecd77f7ab610f91"
+    },
+    {
+      "id": "pikpakshare",
+      "name": "PikPak 分享",
+      "version": "1.0.2",
+      "description": "PikPak 分享链接浏览 (免登录): 填分享链接/ShareId + 提取码, 浏览分享文件 + 直链下载/在线播放。web 平台签名, captcha token 自动刷新。只读(NoUpload)。",
+      "url": "apps/nsapp/pikpakshare-1.0.2.nsapp",
+      "size": 13280,
+      "md5": "090303a97bdb4a5b6f8fa5ec76504c28"
+    },
+    {
+      "id": "ssh",
+      "name": "SSH 终端",
+      "version": "1.1.1",
+      "description": "原生 SSH 终端 (基座 0.1.58+): 服务器配置管理(密码/私钥认证), 点连接打开 JSch+xterm.js 全屏终端, 软键盘/物理键盘, 播完即走",
+      "url": "apps/nsapp/ssh-1.1.1.nsapp",
+      "size": 5837,
+      "md5": "deb70bfce2b4374ba0b65ea202a0f718"
+    },
+    {
+      "id": "termux",
+      "name": "Termux 本地终端",
+      "version": "1.2.0",
+      "description": "本地 shell 终端 (基座 0.1.63r24+ PTY): 直接跑 Android 本地 /system/bin/sh (toybox 命令集), 无需网络, 模拟 Termux 的 $HOME 环境。终端底栏含快捷命令芯片。",
+      "url": "apps/nsapp/termux-1.2.0.nsapp",
+      "size": 7007,
+      "md5": "28d6c93bc304057cd881b793fa40d721"
+    },
+    {
+      "id": "tvbox",
+      "name": "TVBox",
+      "version": "2.0.2",
+      "description": "TVBox 聚合配置多源播放器: 只支持 TVBox config(sites[])格式, 可导入多个配置并任选其一作为主配置; 源→分类→列表→详情→选线路/选集播放, 选集连播(基座0.1.54+); 换源跨所有配置的所有源搜索; 支持 lives[] 直播直接播 m3u8; 播放地址原样透传, 无代理",
+      "url": "apps/nsapp/tvbox-2.0.2.nsapp",
+      "size": 15294,
+      "md5": "f6e873efa5f8646311faef4dc5776afa"
+    },
+    {
+      "id": "webdav",
+      "name": "WebDAV 客户端",
+      "version": "1.0.6",
+      "description": "WebDAV 客户端 (NodeShell): 多服务器管理, PROPFIND 文件浏览, 新建文件夹/新建文件/上传/重命名/移动/复制/删除, 文本查看, 视频音频直连播放。支持 Basic 认证。任意方法经 Node 原生 http/https 直发。",
+      "url": "apps/nsapp/webdav-1.0.6.nsapp",
+      "size": 16594,
+      "md5": "f61ca39a6389f5034532b0a51c0df7f2"
+    }
+  ]
+}
