@@ -237,7 +237,6 @@ In Claude Desktop (`claude_desktop_config.json`) or Cursor (`~/.cursor/mcp.json`
 | `ns_scan` | Scan source for secrets (API keys, tokens, private keys, password assignments) |
 | `ns_rollback` / `ns_delete_file` / `ns_purge_trash` | Per-file rollback, delete (auto-moved to `.trash/`), purge trash |
 
-
 ---
 
 ## 🔒 Privacy First & Pure Local Experience
