@@ -237,7 +237,6 @@ NodeShell 基座内置了 **MCP (Model Context Protocol) 服务端**。支持 St
 | `ns_scan` | 扫描源码里的敏感信息（API Key / token / 私钥 / 密码赋值） |
 | `ns_rollback` / `ns_delete_file` / `ns_purge_trash` | 单文件回滚、删除（自动进 `.trash/`）、清空回收站 |
 
-
 ---
 
 ## 🔒 纯净无痕与隐私保障
