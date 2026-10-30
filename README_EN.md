@@ -237,21 +237,6 @@ In Claude Desktop (`claude_desktop_config.json`) or Cursor (`~/.cursor/mcp.json`
 | `ns_scan` | Scan source for secrets (API keys, tokens, private keys, password assignments) |
 | `ns_rollback` / `ns_delete_file` / `ns_purge_trash` | Per-file rollback, delete (auto-moved to `.trash/`), purge trash |
 
----|---|
-| `ns_get_docs` | Fast developer lookup: Full 44-control table + 4 core rules + JS APIs |
-| `ns_list_apps` | Enumerate installed applications (id, name, version, running status) |
-| `ns_list_files` / `ns_read_file` | Read project file tree and file contents (with hash concurrency check) |
-| `ns_write_file` | Write code: **pre-syntax check**, **auto app reload**, deterministic status return |
-| `ns_create_app` | Scaffold a brand new app from templates (`blank`, `list`, `form`, `tabs`) |
-| `ns_launch_app` | Launch or restart an application, optionally bringing it to the user screen |
-| `ns_get_state` | Read back current UI tree state, bridge connection, and schema issues |
-| `ns_read_log` | Read logs filtered by appId/level, with timestamp anchors and regex search |
-| `ns_send_event` | **Simulate user interaction**: tap, list item click, scroll, refresh, text typing |
-| `ns_screenshot` | **Capture real device screen** (standard MCP Image Block) |
-| `ns_get_layout` | Get exact bounding coordinates `{x, y, w, h}` to detect layout overflow |
-| `ns_eval` | Execute arbitrary JS expression inside the app sandbox (supports await) |
-| `ns_get_storage` / `ns_set_storage` | Read, write, or merge persistent `$storage` and `$prefs` key-values |
-| `ns_rollback` | Restore source code instantly using automated `.bak` snapshots |
 
 ---
 
