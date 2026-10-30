@@ -237,21 +237,6 @@ NodeShell 基座内置了 **MCP (Model Context Protocol) 服务端**。支持 St
 | `ns_scan` | 扫描源码里的敏感信息（API Key / token / 私钥 / 密码赋值） |
 | `ns_rollback` / `ns_delete_file` / `ns_purge_trash` | 单文件回滚、删除（自动进 `.trash/`）、清空回收站 |
 
----|---|
-| `ns_get_docs` | 获取开发规范速查表、44 种控件契约与四条核心铁律 |
-| `ns_list_apps` | 查看当前设备已安装应用清单（ID、名称、版本、运行状态） |
-| `ns_list_files` / `ns_read_file` | 查看应用工程源码树、读取代码文件内容（带哈希并发校验） |
-| `ns_write_file` | 写入修改代码文件：**自动语法校验**，**默认自动热更重启**，回传确定性状态 |
-| `ns_create_app` | 快速创建空白应用骨架（提供 blank / list / form / tabs 四套模板） |
-| `ns_launch_app` | 启动或重启指定应用，支持前台切换或后台静默启动 |
-| `ns_get_state` | 读回当前屏幕 UI 树状态摘要，自动检测契约问题与渲染健康度 |
-| `ns_read_log` | 读取运行日志：支持按应用 ID、日志级别过滤，支持正则搜索与时间锚定 |
-| `ns_send_event` | **模拟真机交互**：点击、长按、列表点击、下拉刷新、真实滚动、逐字输入 |
-| `ns_screenshot` | **截取真机当前画面**（标准 MCP Image Block，真机实时截图） |
-| `ns_get_layout` | 获取全屏幕各节点坐标 `{x, y, w, h}`，智能识别内容溢出等排版问题 |
-| `ns_eval` | 在应用沙箱环境内动态执行一段 JS 代码并获取返回值（支持 await） |
-| `ns_get_storage` / `ns_set_storage` | 读写、合并应用的 `$storage` 与 `$prefs` 本地持久化数据 |
-| `ns_rollback` | 利用自动备份的 `.bak` 一键安全回滚历史源码 |
 
 ---
 
