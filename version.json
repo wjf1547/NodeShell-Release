@@ -1,17 +1,17 @@
 {
-  "version": "0.2.59",
-  "versionCode": 211,
+  "version": "0.2.84",
+  "versionCode": 236,
   "phone": {
-    "url": "https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.59/NodeShell-0.2.59-arm64.apk",
-    "mirror": "https://ghfast.top/https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.59/NodeShell-0.2.59-arm64.apk",
-    "size": 55350731,
-    "md5": "61443c6f8c4a243641d2c60a5c24168f"
+    "url": "https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.84/NodeShell-0.2.84-arm64.apk",
+    "mirror": "https://ghfast.top/https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.84/NodeShell-0.2.84-arm64.apk",
+    "size": 57051496,
+    "md5": "3710b4b19f98fa4126b5454f0da9cfff"
   },
   "tv": {
-    "url": "https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.59/NodeShell-TV-0.2.59-v7a.apk",
-    "mirror": "https://ghfast.top/https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.59/NodeShell-TV-0.2.59-v7a.apk",
-    "size": 51144009,
-    "md5": "7bc6da603b2df71bb0ee3fbbe4aea4b1"
+    "url": "https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.84/NodeShell-TV-0.2.84-v7a.apk",
+    "mirror": "https://ghfast.top/https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.84/NodeShell-TV-0.2.84-v7a.apk",
+    "size": 52861114,
+    "md5": "342649cfc340c7424d8cbbf61172c130"
   },
-  "notes": "基座更新至 0.2.59"
+  "notes": "基座更新至 0.2.84"
 }
