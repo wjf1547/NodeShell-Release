@@ -1,17 +1,17 @@
 {
-  "version": "0.2.86",
-  "versionCode": 238,
+  "version": "0.2.95",
+  "versionCode": 247,
   "phone": {
-    "url": "https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.86/NodeShell-0.2.86-arm64.apk",
-    "mirror": "https://ghfast.top/https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.86/NodeShell-0.2.86-arm64.apk",
-    "size": 57051620,
-    "md5": "d2a04f00e806af3340ffadc0be6ab799"
+    "url": "https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.95/NodeShell-0.2.95-arm64.apk",
+    "mirror": "https://ghfast.top/https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.95/NodeShell-0.2.95-arm64.apk",
+    "size": 57063518,
+    "md5": "00e53f8f0b1f92c97b55dab8117aca5f"
   },
   "tv": {
-    "url": "https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.86/NodeShell-TV-0.2.86-v7a.apk",
-    "mirror": "https://ghfast.top/https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.86/NodeShell-TV-0.2.86-v7a.apk",
-    "size": 52861234,
-    "md5": "cfd285d7ca9e96c3ccf7bc582ba67d17"
+    "url": "https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.95/NodeShell-TV-0.2.95-v7a.apk",
+    "mirror": "https://ghfast.top/https://github.com/wjf1547/NodeShell-Release/releases/download/v0.2.95/NodeShell-TV-0.2.95-v7a.apk",
+    "size": 52873132,
+    "md5": "1352cf015a1ad5bf1405c35028176465"
   },
-  "notes": "0.2.86 更新\n\n- 全新紧凑排版: 界面密度更贴合手机小屏, 一屏能看更多内容\n- 应用可按需声明宽松排版 (density: normal / spacious), 老应用无需改动即可保持原样式\n- 卡片与列表支持细粒度微调 (圆角、内边距、紧凑模式)\n- 修复若干已知问题并优化性能"
+  "notes": "基座更新至 0.2.95"
 }
