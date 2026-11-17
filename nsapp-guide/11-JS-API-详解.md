@@ -111,7 +111,7 @@ $media.open({
   url:      'http(s) 直链 或本地 /s/<token>',
   infoUrl:  '原始链接(可选),供 i 信息弹窗展示',
   type:     'video' | 'audio',
-  title, poster, artist, autoPlay: true
+  title, poster, artist, lrc, autoPlay: true
 })
 // → Promise，resolve({finished:true|false})；关闭播放器时才 resolve
 ```
@@ -120,7 +120,7 @@ $media.open({
 
 `type:'audio'` 不再共用视频那套界面（黑底 / 旋转 / 投屏 / 弹幕 / 倍速）。基座会切到
 **音乐专属 UI**：底部迷你条（旋转封面 + 歌名歌手跑马灯 + 播放/下一首）→ 上滑或点文字区
-展开全屏页（封面呼吸缩放 + 大播放键 + 播放模式 / 播放列表 / 收起）。
+展开全屏页（封面呼吸缩放 + 歌词滚动切换 + 大播放键 + 循环模式 / 播放列表 / 收起）。
 
 ```js
 $media.open({
@@ -129,17 +129,19 @@ $media.open({
   title:  '歌名',
   artist: '歌手',              // 迷你条/全屏页第二行；不传这一行不显示
   poster: 'https://.../c.jpg', // 封面；不传显示占位图标
-  list:   [                    // 连播：每首可以带自己的封面与歌手
-    { url: '...', title: 'A', poster: '...', artist: 'X' },
-    { url: '...', title: 'B', poster: '...', artist: 'Y' },
+  lrc:    '[00:01.00]歌词内容\n[00:05.00]下一句...', // LRC 歌词文本 (0.2.37+)
+  list:   [                    // 连播：每首可以带自己的封面、歌手与歌词
+    { url: '...', title: 'A', poster: '...', artist: 'X', lrc: '...' },
+    { url: '...', title: 'B', poster: '...', artist: 'Y', lrc: '...' },
   ],
 })
 ```
 
 - `type` 也接受 `'music'` / `'song'`；**完全没传 `type` 但传了 `artist`** 时同样按音乐处理
   （老应用没写 type，别让它掉进视频 UI）
-- `list` 项上的 `poster` / `artist` 缺省时回退到顶层 `poster` / `artist`
-- 音乐页**没有**歌词 / 收藏 / 音质标签 —— 基座没有对应数据通道；这些请应用自己在页面里画
+- `list` 项上的 `poster` / `artist` / `lrc` 缺省时回退到顶层对应字段
+- **歌词显示与交互**（0.2.37+）：全屏页点封面或顶栏歌词图标，可切换「封面」与「歌词滚动」视图；播放时当前行高亮居中滚动，点任意一行歌词可直接跳至该位置播放；无歌词时显示纯音乐提示
+- **播放模式增强**（0.2.37+）：支持 4 种循环模式一键切换 —— 列表循环（默认）、单曲循环、随机播放、顺序播放（单曲播完即止），切换带 Toast 提示
 - 定时关闭请用 `$media.open` 之外的应用侧定时器 + 关播放器，基座不自带
 
 ### ⚠️ Promise 语义(重要)
@@ -191,7 +193,7 @@ $media.onNext(() => {
 ## 11.4 $http -- HTTP 请求(永远直连)
 
 ```js
-$http.get(url, {headers?, timeout?, connectTimeout?, maxBytes?})   // → {status, headers, body, json?}
+$http.get(url, {headers?, timeout?, connectTimeout?, maxBytes?, maxDecodedBytes?})   // → {status, headers, body, json?}
 $http.post(url, body, {headers?})           // body: object→JSON,也可传字符串
 $http.request(method, url, opts)            // 0.2.0+: 任意方法
 $http.put(url, body, opts)
@@ -203,11 +205,17 @@ $http.head(url, opts)
 |---|---|---|
 | `timeout` | 60000 | **总超时**(毫秒),从发出请求到响应体读完。到点必断。 |
 | `connectTimeout` | 15000 | 连接阶段超时,地址不可达时快速失败 |
-| `maxBytes` | 32MB | 响应体上限,超出截断并置 `truncated: true` |
+| `maxBytes` | 32MB | **压缩后**响应体上限，超出截断并置 `truncated: true` |
+| `maxDecodedBytes` | 32MB | **解压后**输出上限（gzip/br 炸弹防线），硬顶 64MB |
 
 > ⚠️ **0.2.28 修正**:`timeout` 以前实际是 **socket 空闲超时** -- 服务端每 100ms 吐 1 字节
 > 就能把 5s 的 timeout 无限延长。现在真的是墙上时钟总时长(连续下载也算)。
 > 同时 gzip/br 解压输出上限跟随 `maxBytes`,压缩炸弹会被拒而不是吃掉几百 MB 内存。
+>
+> ⚠️ **0.2.82 修正**:解压上限改为**独立**的 `maxDecodedBytes`(默认 32MB, 硬顶 64MB),
+> 不再跟随 `maxBytes`。两者量纲不同 —— `maxBytes` 是「压缩后收多大」, 想下大文件就调它;
+> 而 100MB 的 gzip 解开典型是 10~100GB, 若解压上限也跟着放宽, 一次请求就能把内存顶穿
+> (runner 一 OOM, **所有应用**一起停)。确实需要解出更大的明文时显式传 `maxDecodedBytes`。
 
 ### ⚠️ `$http` 永远直连真实目标
 
@@ -337,7 +345,12 @@ function delServer(i, s) {
 ## 11.7 $webview -- 全屏网页
 
 ```js
-$webview.open({ url:'https://example.com', title:'网页' })   // → Promise,返回栈可 pop
+$webview.open({
+  url: 'https://example.com',
+  title: '网页',
+  orientation: 'landscape', // 可选: 'landscape' | 'portrait' | 'sensor' (横屏/竖屏/重力感应)
+  immersive: true,          // 可选: 全屏沉浸模式 (隐藏系统状态栏与导航手势条，适合全屏游戏/H5全屏应用)
+})   // → Promise,返回栈可 pop
 ```
 
 ---
@@ -586,7 +599,73 @@ const url = stream.custom((req, res) => {
 
 ---
 
-## 11.13 $toast
+## 11.13 @shell/pager / $pager -- 通用翻页控件 (0.2.54+)
+
+基座内置的翻页条生成与控制器，应用无需在包内自带 `lib/pager.js`，沙箱环境下 `$pager` 全局可用，亦可通过 `require('@shell/pager')` 获取。
+
+### 用法示例
+
+```js
+// 1. 获取 pager（全局 $pager 直接可用，也可 require）
+const pager = typeof $pager !== 'undefined' ? $pager : require('@shell/pager');
+
+// 2. 列表页 footer 塞翻页条
+$ui.render({
+  type: 'list',
+  props: {
+    items: state.items,
+    footer: pager.nodes(state.listState), // { page, maxPage }
+  }
+});
+
+// 3. 事件绑定
+pager.bind($ui, {
+  getList: () => state.listState,
+  fetchPage: async (page) => {
+    const data = await fetchList(page);
+    return { items: data.list, maxPage: data.totalPage };
+  },
+  render: () => renderList(),
+});
+```
+
+### 特性与保证
+
+- **固定槽位**：同屏内翻页槽位数严格恒定，避免横向跳动导致误触。
+- **内置防抖与竞态控制**：同页点击自动防抖，快速连点不会串页，迟到响应自动作废。
+- **重试支持**：失败后提供 `reload()` 绕过同页防抖。
+
+### 11.13.1 同批收编的 `@shell/fmt` 与 `@shell/fskit`（0.2.59+）
+
+网盘类应用此前各带一份 `lib/fmt.js`（88 行）+ `lib/fskit.js`（144 行），10 个应用逐字相同 ——
+和 pager 一模一样的病。0.2.59 起两个模块都进了基座，应用**删掉包内副本**改 require 即可：
+
+```js
+const F = require('@shell/fmt');     // 格式化 / 文件类型判定（纯函数）
+const K = require('@shell/fskit');   // 文件列表 UI 套件（内部复用同一份 fmt）
+
+F.fmtSize(1536)          // '1.5 KB'
+F.fmtTime('2026-11-01T03:04:05Z')   // '2026-11-01 11:04'
+F.fmtAgo(Date.now() - 3 * 60000)    // '3 分钟前'
+F.kindOf('a.mp4')        // 'video'  → 决定点击走哪条预览分支
+F.iconOf('video')        // '🎬'
+F.usage(70, 100)         // { used:70, total:100, pct:70, text:'70 B / 100 B (70%)' }
+
+K.toItems(entries, selMap)   // entries → list.items（标题/副标题/图标一次到位）
+K.crumb('/a/b/c')            // 面包屑节点
+K.toggle / toggleAll / selected / selCount / selActions
+```
+
+`fskit` 导出的 `selActions()` 返回的正是 `list.props.actions` 数据行，
+配合 0.2.59 的 `list.selectable` 可以两行代码做完「长按多选 + 批量操作」。
+
+> ⚠️ 这三个模块**不许再在应用包内留副本**。`tests/pager_shared_test.js` 会扫所有应用目录，
+> 发现 `lib/pager.js` / `lib/fmt.js` / `lib/fskit.js` 或相对路径 `require('./lib/pager.js')`
+> 直接判红 —— 副本一旦回来，「改一处要改 N 遍」的老路就重新开始了。
+
+---
+
+## 11.14 $toast
 
 ```js
 $toast(msg)     // 与 $app.toast 等价
@@ -594,7 +673,7 @@ $toast(msg)     // 与 $app.toast 等价
 
 ---
 
-## 11.14 Node.js 原生能力
+## 11.15 Node.js 原生能力
 
 应用跑在完整 Node v18 环境,以下**直接可用**:
 
@@ -612,3 +691,21 @@ require('任意 npm 包')            // 需自带 node_modules
 
 > 应用自己的数据请放在 `<appData>/<id>/`(`$storage` / `$prefs` 已代为管理)。
 > 访问 `/sdcard` 等受限路径需要系统授权。
+
+### ⚠️ 隔离边界（必读）
+
+上面这些能力意味着 **nsapp 之间没有文件系统隔离**。说清楚威胁模型，免得误以为有沙箱：
+
+| 能防的 | 防不了 |
+|---|---|
+| 普通 HTML/JS 注入 → 碰不到 Node API | 恶意 nsapp 读写**其它**应用目录、`/sdcard`、日志 |
+| `vm` 沙箱挡住「意外逃逸的同步死循环」(有超时) | 显式 `require('fs')` / `require('net')` 的直连访问 |
+| `$http` 的重定向/上限/解压炸弹防线 | 绕过 `$http` 自己 `require('http')` 的请求 |
+
+**结论：装一个 nsapp 就相当于把它当成本机代码信任。** 只从可信来源安装（官方商店 / 你自己写的）。
+
+> 为什么不做严格隔离：nsapp 的定位是「你自己写的小应用」，需要真实文件读写（文件管理器 /
+> 下载器 / 媒体播放器）。如果只能访问自己的目录，这些应用全写不出来。
+>
+> 已知可加固点（尚未做）：对 `fs` / `child_process` / `net` 做限定在 `appDir` 内的 facade。
+> 这需要先确认现有应用不会被误伤，所以押后。

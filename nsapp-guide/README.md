@@ -31,9 +31,9 @@
 | 章 | 文件 | 内容 |
 |---|---|---|
 | 10 | [10-页面栈与返回.md](10-页面栈与返回.md) | push/render/pop 语义、返回键拦截、滚动位置、翻页（12 条铁律） |
-| 11 | [11-JS-API-详解.md](11-JS-API-详解.md) | $app / $ui / $media / $http / $mhttp / $storage / $prefs / $webview / $ssh / $termux / $wifi / $shell / CFG / @shell/stream |
+| 11 | [11-JS-API-详解.md](11-JS-API-详解.md) | $app / $ui / $media / $http / $mhttp / $storage / $prefs / $webview / $ssh / $termux / $wifi / $shell / CFG / @shell/stream / @shell/pager / $pager |
 | 12 | [12-打包与发布.md](12-打包与发布.md) | pack.js 打包、图标规范、.nsapp/.nsapps、商店推送、安装入口 |
-| 13 | [13-调试与自检.md](13-调试与自检.md) | 调试器 Console、UI 契约校验、schema warn 解读、常见症状对照表、**让 AI 直接改应用（MCP）** |
+| 13 | [13-调试与自检.md](13-调试与自检.md) | 调试器 Console、UI 契约校验、schema warn 解读、常见症状对照表、**AI 造应用全套**（13.8 电脑端 MCP → 13.9 手机端对话框 → 13.10 实操节奏 → 13.11 26 个工具 → 13.12 翻车点） |
 | 14 | [14-实战演练.md](14-实战演练.md) | 三个完整示例：待办清单 / 视频浏览器 / 密码管理器 |
 | 15 | [15-避坑清单.md](15-避坑清单.md) | 从线上 bug 提炼的 12 条硬性约定 + 高频翻车点 |
 
