@@ -315,20 +315,25 @@ declare namespace NodeShell {
 
   /**
    * grid 控件属性
-   * 图片网格; item.url 支持 {value,headers} 形式; subtitle 副标题 (0.1.70+); 0.1.67+ 支持 header/footer 冻结栏与 refreshing/onRefresh 下拉刷新
+   * 图片网格; item.url 支持 {value,headers} 形式; subtitle 副标题 (0.1.70+); 0.1.67+ 支持 header/footer 冻结栏与 refreshing/onRefresh 下拉刷新; 0.2.104+ empty/emptyIcon/error/onRetry 内建三态 (与 list 同义, 占满整行); staggered:true 切换成瀑布流 (LazyVerticalStaggeredGrid) —— 每列独立堆叠、图片按原始比例出高, 此时 aspect 默认不锁高度
    */
   export interface GridProps {
     aspect?: any;
     columns?: any;
+    empty?: any;
+    emptyIcon?: any;
+    error?: any;
     footer?: any;
     header?: any;
     items?: GridItem[];
     onEndReached?: string;
     onRefresh?: string;
+    onRetry?: string;
     prefetchDistance?: any;
     refreshing?: boolean;
     skeleton?: any;
     skeletonCount?: any;
+    staggered?: any;
     [key: string]: any;
   }
 
@@ -356,7 +361,7 @@ declare namespace NodeShell {
 
   /**
    * image 控件属性
-   * 图片; url 支持 {value,headers} 形式 (headers 在 url 对象内, 非顶层 props); height 固定高度(dp), contentScale='crop'|'fit'; maxHeightPct 无 height 时的高度上限(占屏高百分比, 默认 40); gallery 看图列表, galleryIndex 起始张, galleryOpen=true 进入即打开; 0.2.59+ qr 传一段文本即渲染成二维码 (走基座已有 zxing, 不需要应用自己编码 PNG; 与 url 互斥, qr 优先; height 默认 180)
+   * 图片; url 支持 {value,headers} 形式 (headers 在 url 对象内, 非顶层 props); height 固定高度(dp), contentScale='crop'|'fit'; maxHeightPct 无 height 时的高度上限(占屏高百分比, 默认 40); gallery 看图列表, galleryIndex 起始张, galleryOpen=true 进入即打开; 0.2.59+ qr 传一段文本即渲染成二维码 (走基座已有 zxing, 不需要应用自己编码 PNG; 与 url 互斥, qr 优先; height 默认 180); 0.2.104+ radius 圆角(dp, 默认 0=直角; 圆形可传一个大于半宽的值); 加载中有占位色块、失败有错误色块, 不再是透明空白
    */
   export interface ImageProps {
     contentScale?: any;
@@ -367,6 +372,7 @@ declare namespace NodeShell {
     maxHeightPct?: any;
     onClick?: string;
     qr?: any;
+    radius?: number | string;
     url?: string;
     [key: string]: any;
   }
@@ -402,16 +408,20 @@ declare namespace NodeShell {
 
   /**
    * list 控件属性
-   * 卡片列表。⚠️ 操作栏必须写 props.actions, 不能写 node.children —— ListNode() 不读 children, 写在那里会静默丢弃 (tutupwd v1.1.2 的真实 bug)。0.1.67+ 支持 refreshing/onRefresh 下拉刷新; 0.2.59+ items[] 可带 children 自定义整行布局 (有 children 时 6 个固定槽位不参与渲染, ⚠️ children 里不要放 list/grid/tree); stickyHeader:true 时按 items[].group 分组并吸顶 (group 为空不分组); 0.2.59+ selectable:true 开启多选 (长按进入/点击切换/顶栏全选), selected 与 selectMode 受控 (不写则基座自管), onSelectChange 回调 {selected,count,mode}
+   * 卡片列表。⚠️ 操作栏必须写 props.actions, 不能写 node.children —— ListNode() 不读 children, 写在那里会静默丢弃 (tutupwd v1.1.2 的真实 bug)。0.1.67+ 支持 refreshing/onRefresh 下拉刷新; 0.2.59+ items[] 可带 children 自定义整行布局 (有 children 时 6 个固定槽位不参与渲染, ⚠️ children 里不要放 list/grid/tree); stickyHeader:true 时按 items[].group 分组并吸顶 (group 为空不分组); 0.2.59+ selectable:true 开启多选 (长按进入/点击切换/顶栏全选), selected 与 selectMode 受控 (不写则基座自管), onSelectChange 回调 {selected,count,mode}; 0.2.104+ empty 空态文案 / error 错误文案 (写了优先于空态) / emptyIcon 空态图标 (默认 📭) / onRetry 错误态重试事件; 三者仅在 items 为空且非 skeleton 时渲染, 优先级 skeleton > error > empty
    */
   export interface ListProps {
     actions?: any;
     dense?: boolean;
+    empty?: any;
+    emptyIcon?: any;
+    error?: any;
     footer?: any;
     header?: any;
     items?: ListItem[];
     onEndReached?: string;
     onRefresh?: string;
+    onRetry?: string;
     onSelectChange?: string;
     prefetchDistance?: any;
     refreshing?: boolean;
@@ -454,13 +464,20 @@ declare namespace NodeShell {
 
   /**
    * pager 控件属性
-   * 原生滑屏容器 (HorizontalPager); items:[{title, children}] 每个页面带独立 children 与 Lazy 状态保留, tabPosition: top(默认)/none(无Tab栏纯滑屏), mode: scrollable(默认)/fixed, swipeEnabled: 是否允许手势滑屏(默认true)
+   * 原生滑屏容器 (HorizontalPager); items:[{title, children}] 每个页面带独立 children 与 Lazy 状态保留, tabPosition: top(默认)/none(无Tab栏纯滑屏), mode: scrollable(默认)/fixed, swipeEnabled: 是否允许手势滑屏(默认true); 0.2.104+ indicator=dots|fraction|none(默认) 指示器, indicatorOverlay 叠在页底(banner 用法), autoPlay+autoPlayInterval(默认 3500ms) 自动轮播且用户一拖即重置计时, loop 无限循环(仅 tabPosition=none), peek 左右露出相邻页(dp), spacing 页间距(dp)
    */
   export interface PagerProps {
     activeTab?: any;
+    autoPlay?: any;
+    autoPlayInterval?: any;
+    indicator?: any;
+    indicatorOverlay?: any;
     items?: PagerItem[];
+    loop?: any;
     mode?: any;
     onPageChange?: string;
+    peek?: any;
+    spacing?: any;
     swipeEnabled?: any;
     tabPosition?: any;
     [key: string]: any;
