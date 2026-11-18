@@ -545,14 +545,17 @@ declare namespace NodeShell {
 
   /**
    * search 控件属性
-   * 搜索框; 0.1.90+ filters 横排筛选 chip (onChange 回传选中 id) + history 历史关键词行 (点击触发 onSubmit)
+   * 搜索框; 0.1.90+ filters 横排筛选 chip (onChange 回传选中 id) + history 历史关键词行 (点击触发 onSubmit); 0.2.105+ suggestions 输入建议下拉 (子串匹配, 最多 8 条, 点击触发 onSubmit); fullscreen:true 收成一条假搜索条, 点一下全屏展开 (自动弹键盘 + 建议/历史列表), autoFocus:true 则渲染即展开
    */
   export interface SearchProps {
+    autoFocus?: any;
     filters?: any;
+    fullscreen?: any;
     history?: any;
     onChange?: string;
     onSubmit?: string;
     placeholder?: string;
+    suggestions?: any;
     value?: string;
     [key: string]: any;
   }
@@ -665,7 +668,7 @@ declare namespace NodeShell {
 
   /**
    * text 控件属性
-   * 文本; 居中用 align:'center'。0.1.68+ 行内富文本自动解析 BBCode 标记: [b]粗[/b] [i]斜[/i] [u]下划线[/u] [c=#f60]颜色[/c]; rich:false 可关闭。未知标记 (如 [1080P]) 原样透传不误伤; selectable:true 可长按选中复制 (0.2.59+); copy:true 点击整段即复制 (0.2.59+, 与 expandable 互斥且优先)
+   * 文本; 居中用 align:'center'。0.1.68+ 行内富文本自动解析 BBCode 标记: [b]粗[/b] [i]斜[/i] [u]下划线[/u] [c=#f60]颜色[/c]; rich:false 可关闭。未知标记 (如 [1080P]) 原样透传不误伤; selectable:true 可长按选中复制 (0.2.59+); copy:true 点击整段即复制 (0.2.59+, 与 expandable 互斥且优先); 0.2.105+ 排版令牌: weight=normal|medium|semibold|bold (优先于旧字段 bold) / lineHeight 倍数 (1.6 = 1.6 倍字号, 不写不干预) / letterSpacing 字距 sp (可负)
    */
   export interface TextProps {
     align?: string;
@@ -673,12 +676,15 @@ declare namespace NodeShell {
     color?: ColorString;
     copy?: any;
     expandable?: any;
+    letterSpacing?: any;
+    lineHeight?: any;
     maxLines?: any;
     onClick?: string;
     rich?: any;
     selectable?: boolean;
     size?: number | string;
     text?: string;
+    weight?: number | string;
     [key: string]: any;
   }
 

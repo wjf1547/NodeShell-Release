@@ -18,16 +18,16 @@
       "description": "B站客户端 (对齐 BiliPai 0.7.8): 推荐/动态/收藏夹/稍后再看/历史/排行榜/番剧/直播/搜索(视频·UP·番剧+热搜+建议)/UP空间(投稿·合集·动态·关于+空间内搜索)/评论(排序+楼中楼)/消息中心/关注; 互动点赞·投币·收藏(可选收藏夹多选)·关注·追番; 字幕(player/wbi/v2 多语言+AI 标记); 相关推荐; 番剧详情(评分·演职人员·开播信息·追番); 离线缓存(下载管理); 听视频(audio UI+字幕歌词); 动态分流(视频/图文/专栏/直播/转发各自可打开); 本地播放进度续播; 拉取式自动连播; durl mp4 单文件取流; protobuf seg.so 全量弹幕; 扫码登录",
       "url": "apps/nsapp/bilili-2.5.6.nsapp",
       "size": 73686,
-      "md5": "334c719b964d2fafaf9d817309f3d9b0"
+      "md5": "ff5479c9a13a0086f2391fbd908bde09"
     },
     {
       "id": "demo",
       "name": "示例演示",
-      "version": "1.8.14",
-      "description": "NodeShell 能力演示 + 上手教程。源码已按模块拆分 (core/ controls/ screens/ events/ + lib/), 一个分类一个文件, 照着某一屏直接读对应文件即可。45 个控件全覆盖 (11 分类 / 85 屏), 包含音乐播放器 (LRC歌词居中动态滚动/点词跳转/4种循环模式/独立歌词连播) 与视频播放器 (分区双击手势/即时倍速触感/全屏防误触锁/胶囊HUD) 原生能力演示, 翻页/海报/筛选/搜索/模态等官方公共模块已收编进基座, 走 @shell/pager · @shell/poster · @shell/filter · @shell/search · @shell/modal · @shell/fmt · @shell/fskit, 应用内不再留副本。每屏底部可展开并复制真实渲染代码。",
-      "url": "apps/nsapp/demo-1.8.14.nsapp",
-      "size": 100083,
-      "md5": "7d115ee9c3c081d59e1a3c75484acdfc"
+      "version": "1.8.15",
+      "description": "NodeShell 能力演示 + 上手教程。源码已按模块拆分 (core/ controls/ screens/ events/ + lib/), 一个分类一个文件, 照着某一屏直接读对应文件即可。48 个控件全覆盖 (11 分类 / 88 屏), 包含音乐播放器 (LRC歌词居中动态滚动/点词跳转/4种循环模式/独立歌词连播) 与视频播放器 (分区双击手势/即时倍速触感/全屏防误触锁/胶囊HUD) 原生能力演示, 翻页/海报/筛选/搜索/模态等官方公共模块已收编进基座, 走 @shell/pager · @shell/poster · @shell/filter · @shell/search · @shell/modal · @shell/fmt · @shell/fskit, 应用内不再留副本。每屏底部可展开并复制真实渲染代码。",
+      "url": "apps/nsapp/demo-1.8.15.nsapp",
+      "size": 103669,
+      "md5": "0978140dbb5dbead698afd9804b134cf"
     },
     {
       "id": "filemgr",
@@ -45,7 +45,7 @@
       "description": "全网热点信息实时聚合客户端：汇聚微博、知乎、百度、哔哩哔哩、抖音、今日头条、36氪、掘金、IT之家、虎扑、贴吧、小红书、少数派、V2EX、微信读书等 15 大平台实时榜单。支持平台快速切换、排名序号高亮、热度展示、点击直达原文/全屏阅读、长按菜单（复制标题/直达链接/系统分享）、关键字快速过滤以及下拉/按钮实时刷新。",
       "url": "apps/nsapp/hotboard-1.1.0.nsapp",
       "size": 8914,
-      "md5": "25358cdb1f5b177f9aafc987308b50e7"
+      "md5": "a7e8efa318a00ebb61312ef1b9b59f2c"
     },
     {
       "id": "musicx",
@@ -54,7 +54,7 @@
       "description": "多源聚合音乐播放器: 发现(今日推荐/排行榜/热歌榜200首) + 搜索(输入即搜/多音源一键切换/历史/触底翻页) + 音乐库(收藏歌单/最近播放/播放队列) + 全屏播放(封面⇄歌词本/队列编排) + 歌单榜单详情; 候选域名并行探测自动切换 + 音质降级链(无损→320→192→128) + 请求序号防串台, 播放交给原生音乐播放器(后台/锁屏/循环), 队列真源在应用侧",
       "url": "apps/nsapp/musicx-1.1.1.nsapp",
       "size": 99653,
-      "md5": "9138fb21b4b2ff251596d719ec1a1c1c"
+      "md5": "cc38b8cc87fdfff3efd0df11e9774bc5"
     },
     {
       "id": "onedrive",
@@ -63,7 +63,7 @@
       "description": "OneDrive 网盘 (Microsoft Graph API): 粘贴 refresh_token 登录, 浏览/播放/直链下载 + 建夹/重命名/移动/复制/删除 + 容量。支持 global/cn/us/de 四区, 在线 API 刷新 token 免 ClientID。",
       "url": "apps/nsapp/onedrive-1.0.7.nsapp",
       "size": 15161,
-      "md5": "15ee5490efb25531616c048bf49a1a3b"
+      "md5": "b32d67740c04cff61fbaaff513c4d87d"
     },
     {
       "id": "pikpakshare",
@@ -72,7 +72,7 @@
       "description": "PikPak 分享链接浏览 (免登录): 填分享链接/ShareId + 提取码, 浏览分享文件 + 直链下载/在线播放。web 平台签名, captcha token 自动刷新。只读(NoUpload)。",
       "url": "apps/nsapp/pikpakshare-1.0.5.nsapp",
       "size": 14508,
-      "md5": "a5c8181a8008332d1bfdf8a8670f95f2"
+      "md5": "46f95d0d730df81e12d743355de04e48"
     },
     {
       "id": "ssh",
@@ -81,7 +81,7 @@
       "description": "原生 SSH 终端 (基座 0.1.58+): 服务器配置管理(密码/私钥认证), 点连接打开 JSch+xterm.js 全屏终端, 软键盘/物理键盘, 播完即走",
       "url": "apps/nsapp/ssh-1.1.1.nsapp",
       "size": 5837,
-      "md5": "9428bb88d8b3d65cd8f474065c028672"
+      "md5": "144f43ba5160ee787467d8ae9c8ccd9b"
     },
     {
       "id": "termux",
@@ -90,7 +90,7 @@
       "description": "本地 shell 终端 (基座 0.1.63r24+ PTY): 直接跑 Android 本地 /system/bin/sh (toybox 命令集), 无需网络, 模拟 Termux 的 $HOME 环境。终端底栏含快捷命令芯片。",
       "url": "apps/nsapp/termux-1.2.1.nsapp",
       "size": 7017,
-      "md5": "982bb7e72ee1c51c79067eba5d8ae328"
+      "md5": "b8f49eb38ee942963970a76ec61e93f8"
     },
     {
       "id": "tvbox",
@@ -99,7 +99,7 @@
       "description": "TVBox 聚合配置多源播放器: 只支持 TVBox config(sites[])格式, 可导入多个配置并任选其一作为主配置; 源→分类→列表→详情→选线路/选集播放, 选集连播(基座0.1.54+); 换源跨所有配置的所有源搜索; 支持 lives[] 直播直接播 m3u8; 播放地址原样透传, 无代理",
       "url": "apps/nsapp/tvbox-2.0.3.nsapp",
       "size": 15455,
-      "md5": "e4ddd90bbf9197eac1ce3b52f2ae9650"
+      "md5": "7ff7d1820f57009daecb846f268f1a7c"
     },
     {
       "id": "webdav",
@@ -108,7 +108,7 @@
       "description": "WebDAV 客户端 (NodeShell): 多服务器管理, PROPFIND 文件浏览, 新建文件夹/新建文件/上传/重命名/移动/复制/删除, 文本查看, 视频音频直连播放。支持 Basic 认证。任意方法经 Node 原生 http/https 直发。",
       "url": "apps/nsapp/webdav-1.0.9.nsapp",
       "size": 17385,
-      "md5": "484da0beededd2b7807315de5f83e0fb"
+      "md5": "0b68ffaf7d6925166444e0687a78fa5d"
     }
   ]
 }
